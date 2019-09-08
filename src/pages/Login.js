@@ -25,7 +25,10 @@ const Login = () => {
       setLogado(true);
     }
   }, []);
+
   const login = async () => {
+    setLogado(true);
+
     await signIn({
       email,
       password: senha,
@@ -46,7 +49,7 @@ const Login = () => {
   }
 
   return (
-    <div className="d-flex p-2 flex-column justify-content-center">
+    <div className="container">
       <h1>Login</h1>
       {postData.error && postData.error.length > 0 && <p>Dados inválidos!</p>}
       <form>

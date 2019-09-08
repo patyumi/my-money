@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Redirect } from "react-router-dom";
 
 import { MdDateRange } from "react-icons/md";
+import month from "../../assets/img/month.svg";
 
 const minAno = 2019;
 const maxAno = 2022;
@@ -38,17 +39,23 @@ const AdicionarMes = () => {
   }
 
   return (
-    <div
-      className="d-flex align-items-center justify-content-between px-5 flex-fill w-100 my-3 text-dark-50 rounded shadow-sm"
-      style={{ backgroundColor: "#FFF" }}
-    >
-      <h3 className="font-weight-normal">
-        <MdDateRange className="mr-3" />
-        Visão Geral
-      </h3>
-      <div className="d-inline-flex flex-row align-items-center justify-content-center p-2">
-        <form className="form-inline">
-          <label className="my-1 mr-2">Novo Mês</label>
+    <>
+      <div
+        className="d-inline-flex flex-column align-items-center justify-content-center w-25 h-50 border boder-secondary bg-white rounded"
+        style={{ maxWidth: "18rem" }}
+      >
+        <div className="d-inline-flex flex-row w-100 h-50">
+          <img
+            className="img-fluid rounded w-25 h-100 mr-3"
+            src={month}
+            alt="new month"
+          />
+          <h5 className="d-inline-flex w-75 h-100 text-secondary h-100">
+            Adicionar Mês
+          </h5>
+        </div>
+
+        <form className="form-inline d-inline-flex flex-row align-items-center w-100 h-75">
           <select
             className="custom-select my-1 mr-sm-2"
             id="inlineFormCustomSelectPref"
@@ -82,7 +89,7 @@ const AdicionarMes = () => {
           </button>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
