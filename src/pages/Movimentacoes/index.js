@@ -43,68 +43,50 @@ const Movimentacoes = ({ match }) => {
   }
 
   return (
-    <div className="container">
-      <div
-        className="d-flex align-items-center justify-content-start p-2 flex-fill w-100 my-3 text-dark-50 rounded shadow-sm"
-        style={{ backgroundColor: "#FFF" }}
-      >
-        <h4 className="font-weight-lighter">
-          <Link to="/" className="text-dark" title="Voltar">
-            <MdDateRange className="mr-2 font-weight-lighter" />
-            Visão Geral
-          </Link>
-        </h4>
-        <h3 className="px-2 font-weight-lighter">
-          <MdKeyboardArrowRight />
-        </h3>
-        <h3 className="font-weight-normal">
-          <MdAccountBalanceWallet className="mr-2" />
-          Movimentacoes
-        </h3>
+    <div className="col-8 col-md-10 w-auto h-100">
+      <div className="d-flex h-25 w-auto justify-content-between flex-column px-1 px-md-5 py-2 border-bottom border-secondary">
+        <h1 className="h-auto text-secondary">{match.params.data}</h1>
+
+        <InfoMes data={match.params.data} />
       </div>
 
-      <InfoMes data={match.params.data} />
-
-      <div class="d-flex flex-lg-row flex-md-column flex-sm-column">
-        <div
-          className="d-flex flex-column align-items-center justify-content-center flex-fill px-5 my-3 text-dark-50 rounded shadow-sm"
-          style={{ backgroundColor: "#FFF" }}
-        >
-          <h1>Transações</h1>
-          <table className="table table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">Descrição</th>
-                <th scope="col">Valor</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              {movimentacoes.data &&
-                Object.keys(movimentacoes.data).map(movimentacao => {
-                  return (
-                    <tr key={movimentacao}>
-                      <td>{movimentacoes.data[movimentacao].descricao}</td>
-                      <td>{movimentacoes.data[movimentacao].valor} </td>
-                      <td>
-                        <button
-                          className="btn btn-danger"
-                          type="button"
-                          onClick={() => removerMovimentacaoClick(movimentacao)}
-                          title="Remover Transação"
-                        >
-                          <MdRemove />
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              <AdicionarMovimentacao
-                salvarNovaMovimentacao={salvarMovimentacao}
-              />
-            </tbody>
-          </table>
-        </div>
+      <div
+        className="d-flex align-items-center justify-content-center p-1 p-md-5 flex-fill w-auto my-3 text-dark-50 rounded shadow-sm"
+        style={{ backgroundColor: "#FFF" }}
+      >
+        <table className="table table-responsive-md table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col">Descrição</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {movimentacoes.data &&
+              Object.keys(movimentacoes.data).map(movimentacao => {
+                return (
+                  <tr key={movimentacao}>
+                    <td>{movimentacoes.data[movimentacao].descricao}</td>
+                    <td>{movimentacoes.data[movimentacao].valor} </td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        type="button"
+                        onClick={() => removerMovimentacaoClick(movimentacao)}
+                        title="Remover Transação"
+                      >
+                        <MdRemove />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            <AdicionarMovimentacao
+              salvarNovaMovimentacao={salvarMovimentacao}
+            />
+          </tbody>
+        </table>
       </div>
     </div>
   );

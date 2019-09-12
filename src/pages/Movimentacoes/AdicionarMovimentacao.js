@@ -33,7 +33,7 @@ const AdicionarMovimentacao = ({ salvarNovaMovimentacao }) => {
           type="text"
           value={descricao}
           onChange={onChangeDescricao}
-          placeholder="Transação aqui"
+          placeholder="Transação"
         />
       </td>
       <td>

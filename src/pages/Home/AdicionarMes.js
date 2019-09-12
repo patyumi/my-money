@@ -1,9 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Redirect } from "react-router-dom";
 
-import { MdDateRange } from "react-icons/md";
-import month from "../../assets/img/month.svg";
-
 const minAno = 2019;
 const maxAno = 2022;
 
@@ -30,7 +27,6 @@ const AdicionarMes = () => {
   };
 
   const verMes = () => {
-    console.log("ok");
     setRedir(refAno.current.value + "-" + refMes.current.value);
   };
 
@@ -39,57 +35,48 @@ const AdicionarMes = () => {
   }
 
   return (
-    <>
-      <div
-        className="d-inline-flex flex-column align-items-center justify-content-center w-25 h-50 border boder-secondary bg-white rounded"
-        style={{ maxWidth: "18rem" }}
-      >
-        <div className="d-inline-flex flex-row w-100 h-50">
-          <img
-            className="img-fluid rounded w-25 h-100 mr-3"
-            src={month}
-            alt="new month"
-          />
-          <h5 className="d-inline-flex w-75 h-100 text-secondary h-100">
-            Adicionar Mês
-          </h5>
-        </div>
+    <div className="col col-md-2 p-0">
+      <div className="bg-warning rounded p-2 pl-4">
+        <h5 className="font-weight-bold">Adicionar mês</h5>
+      </div>
 
-        <form className="form-inline d-inline-flex flex-row align-items-center w-100 h-75">
-          <select
-            className="custom-select my-1 mr-sm-2"
-            id="inlineFormCustomSelectPref"
-            ref={refAno}
-          >
-            {anos.map(ano => (
-              <option key={ano} value={ano}>
-                {ano}
-              </option>
-            ))}
-          </select>
-          <select
-            className="custom-select my-1 mr-sm-2"
-            id="inlineFormCustomSelectPref"
-            ref={refMes}
-          >
-            {meses.map(zeroPad).map(mes => (
-              <option key={mes} value={mes}>
-                {mes}
-              </option>
-            ))}
-          </select>
+      <div className="bg-light my-2 p-4 rounded">
+        <form>
+          <div className="form-group">
+            <label className="font-weight-bold">Ano</label>
+            <select className="form-control" ref={refAno}>
+              {anos.map(ano => (
+                <option key={ano} value={ano}>
+                  {ano}
+                </option>
+              ))}
+            </select>
+          </div>
 
-          <button
-            type="button"
-            className="btn btn-dark my-1"
-            onClick={verMes}
-            title="Salvar novo mês"
-          >
-            Salvar
-          </button>
+          <div className="form-group">
+            <label className="font-weight-bold">Mês</label>
+            <select className="form-control" ref={refMes}>
+              {meses.map(zeroPad).map(mes => (
+                <option key={mes} value={mes}>
+                  {mes}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
+            <button
+              type="button"
+              className="btn btn-warning rounded-pill btn-block"
+              onClick={verMes}
+              title="Salvar novo mês"
+            >
+              Salvar
+            </button>
+          </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

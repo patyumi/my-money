@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Rest from "../../utils/rest";
+
+import Transacao from "./Transacao";
 
 const baseURL = "https://mymoney-curso-devpleno.firebaseio.com/";
 const { useGet } = Rest(baseURL);
@@ -16,46 +18,21 @@ const Meses = () => {
     return <Redirect to="/login" />;
   }
 
-  if (Object.keys(data.data).length > 0) {
-    return (
-      <div
-        className="d-flex align-items-center justify-content-center p-5 flex-fill w-100 my-3 text-dark-50 rounded shadow-sm"
-        style={{ backgroundColor: "#FFF" }}
-      >
-        <table className="table table-hover text-center">
-          <thead>
-            <tr>
-              <th scope="col">Mês</th>
-              <th scope="col">Previsão Entrada</th>
-              <th scope="col">Entrada</th>
-              <th scope="col">Previsão Saída</th>
-              <th scope="col">Saída</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(data.data).map(mes => {
-              return (
-                <tr key={mes}>
-                  <td>
-                    <Link to={`/movimentacoes/${mes}`}>{mes}</Link>
-                  </td>
-                  <td>{data.data[mes].previsao_entrada}</td>
-                  <td className="font-weight-bold text-success">
-                    {data.data[mes].entradas}
-                  </td>
-                  <td>{data.data[mes].previsao_saida}</td>
-                  <td className="font-weight-bold text-danger">
-                    {data.data[mes].saidas}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+  return (
+    <div className="col col-md-10">
+      <div className="bg-warning rounded p-2 pl-4">
+        <h5 className="font-weight-bold">Movimentações</h5>
       </div>
-    );
-  }
-  return null;
+
+      {Object.keys(data.data).length > 0 ? (
+        Object.keys(data.data).map(mes => {
+          return <Transacao mes={mes} data={data.data[mes]} />;
+        })
+      ) : (
+        <h1>Não existem movimentações cadastradas.</h1>
+      )}
+    </div>
+  );
 };
 
 export default Meses;

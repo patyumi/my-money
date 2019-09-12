@@ -12,23 +12,15 @@ import Nomatch from "./nomatch";
 function App() {
   // Elementos
   return (
-    <div className="container-fluid bg-dange">
-      <Router>
-        <div className="row bg-light min-vh-100">
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            {/*<Route exact path="/login" component={Login} />*/}
-            <Route
-              exact
-              path="/movimentacoes/:data"
-              component={Movimentacoes}
-            />
-            <Route component={Nomatch} />
-          </Switch>
-        </div>
-      </Router>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        {/*<Route exact path="/login" component={Login} />*/}
+        <Route exact path="/movimentacoes/:data" component={Movimentacoes} />
+        <Route component={Nomatch} />
+      </Switch>
+    </Router>
   );
 }
 
