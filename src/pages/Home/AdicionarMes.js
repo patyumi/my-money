@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import { Redirect } from "react-router-dom";
 
+import chartImg from "../../assets/img/segmentChart.svg";
+
 const minAno = 2019;
 const maxAno = 2022;
 
@@ -35,7 +37,7 @@ const AdicionarMes = () => {
   }
 
   return (
-    <div className="col col-md-2 p-0">
+    <div className="col col-md-2 p-0 h-100">
       <div className="bg-warning rounded p-2 pl-4">
         <h5 className="font-weight-bold">Adicionar mês</h5>
       </div>
@@ -75,6 +77,14 @@ const AdicionarMes = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div>
+        <img
+          src={chartImg}
+          alt="Segment chart"
+          className="img-fluid position-fixed fixed-bottom"
+          style={{ zIndex: 0 }}
+        />
       </div>
     </div>
   );
