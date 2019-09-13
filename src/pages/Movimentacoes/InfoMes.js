@@ -1,6 +1,8 @@
 import React from "react";
 import { useMesApi } from "../../api";
 
+import printMoney from "../../assets/img/printMoney.svg";
+
 const InfoMes = ({ data }) => {
   const { infoMes, alterarMes } = useMesApi(data);
 
@@ -14,32 +16,73 @@ const InfoMes = ({ data }) => {
 
   if (infoMes.loading) {
     return (
-      <div
-        className="d-flex flex-column align-items-center justify-content-center px-5 my-3 mr-3 flex-fill text-dark-50 rounded shadow-sm"
-        style={{ backgroundColor: "#FFF" }}
-      >
-        <h4>Carregando dados do mês ...</h4>
+      <div className="container-fluid my-2">
+        <div className="row justify-content-md-center">
+          <div className="col-12 rounded text-center p-2">
+            <h5 className="text-secondary">Carregando dados do mês ...</h5>
+          </div>
+        </div>
       </div>
     );
   }
   if (infoMes.data) {
     return (
-      <div
-        className="d-flex flex-column align-items-center justify-content-center px-5 my-3 mr-3 flex-fill text-dark-50 rounded shadow-sm"
-        style={{ backgroundColor: "#FFF" }}
-      >
-        <h1>Carteira</h1>
-        <h6>
-          Previsao de entrada: {infoMes.data.previsao_entrada}
-          <input type="text" onBlur={alterarPrevisaoEntrada}></input>
-        </h6>
-        <h6>
-          Previsao de saída: {infoMes.data.previsao_saida}
-          <input type="text" onBlur={alterarPrevisaoSaida}></input>
-        </h6>
-        <hr />
-        <h6>Entradas: {infoMes.data.entradas}</h6>
-        <h6>Saídas: {infoMes.data.saidas}</h6>
+      <div className="container-fluid my-2">
+        <div className="row justify-content-md-center">
+          <button
+            type="button"
+            className="col-12 col-md-2 rounded text-center p-2 text-white btn btn-success"
+          >
+            <h1 className="my-2" style={{ fontSize: "44px" }}>
+              <span style={{ fontSize: "14px" }}>R$</span>
+              {infoMes.data.previsao_entrada}
+            </h1>
+            <small>PREVISÃO ENTRADAS</small>
+
+            <input type="text" onBlur={alterarPrevisaoEntrada} />
+          </button>
+
+          <button
+            type="button"
+            className="col-12 col-md-2 rounded text-center p-2 text-white mx-md-3 btn btn-danger"
+          >
+            <h1 className="my-2" style={{ fontSize: "44px" }}>
+              <span style={{ fontSize: "14px" }}>R$</span>
+              {infoMes.data.previsao_saida}
+            </h1>
+            <small>PREVISÃO SAÍDAS</small>
+
+            <input type="text" onBlur={alterarPrevisaoSaida} />
+          </button>
+
+          <div className="col-12 col-md rounded text-center p-2 text-white mx-2">
+            <img src={printMoney} className="img-fluid" alt="printing money" />
+          </div>
+
+          <button
+            type="button"
+            className="col-12 col-md-2 rounded text-center p-2 mx-md-3 btn btn-light btn-lg"
+            disabled
+          >
+            <h1 className="text-success my-2" style={{ fontSize: "44px" }}>
+              <span style={{ fontSize: "14px" }}>R$</span>
+              {infoMes.data.entradas}
+            </h1>
+            <small className="text-secondary">ENTRADAS</small>
+          </button>
+
+          <button
+            type="button"
+            className="col-12 col-md-2 rounded text-center p-2 btn btn-light btn-lg"
+            disabled
+          >
+            <h1 className="text-danger my-2" style={{ fontSize: "44px" }}>
+              <span style={{ fontSize: "14px" }}>R$</span>
+              {infoMes.data.saidas}
+            </h1>
+            <small className="text-secondary">SAÍDAS</small>
+          </button>
+        </div>
       </div>
     );
   }

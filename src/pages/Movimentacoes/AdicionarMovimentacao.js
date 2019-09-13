@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { MdAdd } from "react-icons/md";
-
 const AdicionarMovimentacao = ({ salvarNovaMovimentacao }) => {
   // Gestão do form
   const [descricao, setDescricao] = useState("");
@@ -27,34 +25,40 @@ const AdicionarMovimentacao = ({ salvarNovaMovimentacao }) => {
   };
 
   return (
-    <tr>
-      <td>
+    <form>
+      <div className="form-group">
+        <label className="font-weight-bold">Transação</label>
         <input
           type="text"
+          class="form-control"
           value={descricao}
           onChange={onChangeDescricao}
-          placeholder="Transação"
+          placeholder="Ex.: 13º Salário"
         />
-      </td>
-      <td>
+      </div>
+
+      <div className="form-group">
+        <label className="font-weight-bold">Valor (R$)</label>
         <input
           type="text"
+          class="form-control"
           value={valor}
           onChange={onChangeValor}
-          placeholder="Valor em R$"
+          placeholder="Insira o valor SEM os centavos (Ex.: 520)"
         />
-      </td>
-      <td>
+      </div>
+
+      <div className="form-group">
         <button
-          className="btn btn-success"
           type="button"
+          className="btn btn-warning rounded-pill btn-block"
           onClick={salvarMovimentacao}
-          title="Salvar Transação"
+          title="Salvar novo mês"
         >
-          <MdAdd />
+          Salvar
         </button>
-      </td>
-    </tr>
+      </div>
+    </form>
   );
 };
 

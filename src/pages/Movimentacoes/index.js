@@ -3,6 +3,12 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import {
+  FaArrowAltCircleDown,
+  FaArrowAltCircleUp,
+  FaTimesCircle
+} from "react-icons/fa";
+
 import { useMovimentacaoApi } from "../../api";
 
 import InfoMes from "./InfoMes";
@@ -43,50 +49,75 @@ const Movimentacoes = ({ match }) => {
   }
 
   return (
-    <div className="col-8 col-md-10 w-auto h-100">
-      <div className="d-flex h-25 w-auto justify-content-between flex-column px-1 px-md-5 py-2 border-bottom border-secondary">
-        <h1 className="h-auto text-secondary">{match.params.data}</h1>
+    <div className="container-fluid pt-5 ">
+      <div className="row mx-2 mx-md-5">
+        <div className="col-12 bg-warning rounded p-2 pl-4">
+          <h5 className="font-weight-bold">{match.params.data}</h5>
+        </div>
 
         <InfoMes data={match.params.data} />
       </div>
 
-      <div
-        className="d-flex align-items-center justify-content-center p-1 p-md-5 flex-fill w-auto my-3 text-dark-50 rounded shadow-sm"
-        style={{ backgroundColor: "#FFF" }}
-      >
-        <table className="table table-responsive-md table-hover text-center">
-          <thead>
-            <tr>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {movimentacoes.data &&
-              Object.keys(movimentacoes.data).map(movimentacao => {
-                return (
-                  <tr key={movimentacao}>
-                    <td>{movimentacoes.data[movimentacao].descricao}</td>
-                    <td>{movimentacoes.data[movimentacao].valor} </td>
-                    <td>
+      <div className="row mx-2 mx-md-5 mt-4">
+        <div className="col-12 col-md-4 p-0 mr-3">
+          <div className="bg-warning p-2 pl-4 rounded">
+            <h5 className="font-weight-bold">Adicionar movimentação</h5>
+          </div>
+
+          <div className="bg-light rounded mt-2 p-4">
+            <AdicionarMovimentacao
+              salvarNovaMovimentacao={salvarMovimentacao}
+            />
+          </div>
+        </div>
+
+        <div className="col p-0">
+          <div className="bg-warning p-2 pl-4 rounded">
+            <h5 className="font-weight-bold">Histórico</h5>
+          </div>
+          {movimentacoes.data &&
+            Object.keys(movimentacoes.data).map(movimentacao => {
+              return (
+                <div
+                  key={movimentacao}
+                  className="container-fluid rounded mt-2"
+                >
+                  <div className="row bg-light rounded p-3 justify-content-md-center">
+                    <div className="col-2 text-center">
+                      {movimentacoes.data[movimentacao].valor > 0 ? (
+                        <FaArrowAltCircleUp className="text-success" />
+                      ) : (
+                        <FaArrowAltCircleDown className="text-danger" />
+                      )}
+                    </div>
+                    <div className="col-5 text-capitalize">
+                      {movimentacoes.data[movimentacao].descricao}
+                    </div>
+                    {movimentacoes.data[movimentacao].valor > 0 ? (
+                      <div className="col-3 text-right font-weight-bold text-success">
+                        R$ {movimentacoes.data[movimentacao].valor}
+                      </div>
+                    ) : (
+                      <div className="col-3 text-right font-weight-bold text-danger">
+                        R$ {movimentacoes.data[movimentacao].valor}
+                      </div>
+                    )}
+
+                    <div className="col-2 text-center">
                       <button
-                        className="btn btn-danger"
+                        className="btn"
                         type="button"
                         onClick={() => removerMovimentacaoClick(movimentacao)}
                         title="Remover Transação"
                       >
-                        <MdRemove />
+                        <FaTimesCircle className="text-secondary" />
                       </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            <AdicionarMovimentacao
-              salvarNovaMovimentacao={salvarMovimentacao}
-            />
-          </tbody>
-        </table>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

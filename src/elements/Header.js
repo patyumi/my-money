@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 
 import { IoMdLogOut } from "react-icons/io";
+import { GiConvergenceTarget } from "react-icons/gi";
 
 const Header = () => {
   const [logado, setLogado] = useState(false);
@@ -30,21 +31,22 @@ const Header = () => {
   }
 
   return (
-    <div className="container-fluid bg-secondary">
+    <div className="container-fluid bg-light">
       <nav className="navbar mx-md-5">
         <Link
           tag="a"
-          className="navbar-brand text-white font-weight-bold"
+          className="navbar-brand font-weight-bold text-dark"
           to="/"
           title="Home"
         >
-          My Money
+          <GiConvergenceTarget className="mr-2" />
+          MY MONEY
         </Link>
 
         {!logado && (
-          <Link to="" onClick={logout} className="nav-link text-white">
+          <Link tag="a" to="" onClick={logout} className="nav-link text-dark">
             <IoMdLogOut className="mr-2" />
-            Sair
+            Logout
           </Link>
         )}
       </nav>
