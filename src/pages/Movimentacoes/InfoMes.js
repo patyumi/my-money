@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMesApi } from "../../api";
 
 import printMoney from "../../assets/img/printMoney.svg";
 
 const InfoMes = ({ data }) => {
+  const [editInPlace, setEditInPlace] = useState(false);
+  const [editInPlaceSaida, setEditInPlaceSaida] = useState(false);
   const { infoMes, alterarMes } = useMesApi(data);
 
   const alterarPrevisaoEntrada = evt => {
-    alterarMes({ previsao_entrada: evt.target.value });
+    if (evt.key) {
+      if (evt.key === "Enter") {
+        alterarMes({ previsao_entrada: evt.target.value });
+        setEditInPlace(false);
+      }
+    } else {
+      alterarMes({ previsao_entrada: evt.target.value });
+      setEditInPlace(false);
+    }
   };
 
   const alterarPrevisaoSaida = evt => {
-    alterarMes({ previsao_saida: evt.target.value });
+    if (evt.key) {
+      if (evt.key === "Enter") {
+        alterarMes({ previsao_saida: evt.target.value });
+        setEditInPlaceSaida(false);
+      }
+    } else {
+      alterarMes({ previsao_saida: evt.target.value });
+      setEditInPlaceSaida(false);
+    }
   };
 
   if (infoMes.loading) {
@@ -32,27 +50,71 @@ const InfoMes = ({ data }) => {
           <button
             type="button"
             className="col-12 col-md-2 rounded text-center p-2 text-white btn btn-success"
+            style={{ cursor: "default" }}
           >
-            <h1 className="my-2" style={{ fontSize: "44px" }}>
-              <span style={{ fontSize: "14px" }}>R$</span>
-              {infoMes.data.previsao_entrada}
-            </h1>
-            <small>PREVISÃO ENTRADAS</small>
+            {editInPlace ? (
+              <input
+                className="my-2"
+                style={{
+                  color: "white",
+                  fontSize: "44px",
+                  width: "100%",
+                  background: "transparent",
+                  border: "none"
+                }}
+                autoFocus
+                type="text"
+                onKeyPress={alterarPrevisaoEntrada}
+                onBlur={alterarPrevisaoEntrada}
+              />
+            ) : (
+              <h1
+                className="my-2"
+                style={{ fontSize: "44px", cursor: "pointer" }}
+                title="Clique para editar"
+                onClick={() => setEditInPlace(!editInPlace)}
+              >
+                <span style={{ fontSize: "14px" }}>R$</span>
+                {infoMes.data.previsao_entrada}
+              </h1>
+            )}
 
-            <input type="text" onBlur={alterarPrevisaoEntrada} />
+            <small>PREVISÃO ENTRADAS</small>
           </button>
 
           <button
             type="button"
             className="col-12 col-md-2 rounded text-center p-2 text-white mx-md-3 btn btn-danger"
+            style={{ cursor: "default" }}
           >
-            <h1 className="my-2" style={{ fontSize: "44px" }}>
-              <span style={{ fontSize: "14px" }}>R$</span>
-              {infoMes.data.previsao_saida}
-            </h1>
-            <small>PREVISÃO SAÍDAS</small>
+            {editInPlaceSaida ? (
+              <input
+                className="my-2"
+                style={{
+                  color: "white",
+                  fontSize: "44px",
+                  width: "100%",
+                  background: "transparent",
+                  border: "none"
+                }}
+                autoFocus
+                type="text"
+                onKeyPress={alterarPrevisaoSaida}
+                onBlur={alterarPrevisaoSaida}
+              />
+            ) : (
+              <h1
+                className="my-2"
+                style={{ fontSize: "44px", cursor: "pointer" }}
+                title="Clique para editar"
+                onClick={() => setEditInPlaceSaida(!editInPlaceSaida)}
+              >
+                <span style={{ fontSize: "14px" }}>R$</span>
+                {infoMes.data.previsao_saida}
+              </h1>
+            )}
 
-            <input type="text" onBlur={alterarPrevisaoSaida} />
+            <small>PREVISÃO SAÍDAS</small>
           </button>
 
           <div className="col-12 col-md rounded text-center p-2 text-white mx-2">
