@@ -26,7 +26,7 @@ const Meses = () => {
 
       {Object.keys(data.data).length > 0 ? (
         Object.keys(data.data).map(mes => {
-          return <Transacao mes={mes} data={data.data[mes]} />;
+          return <Transacao key={mes} mes={mes} data={data.data[mes]} />;
         })
       ) : (
         <h1>Não existem movimentações cadastradas.</h1>
