@@ -9,7 +9,7 @@
   <p align="center">
     Aplicação para controle de finanças.
     <br />
-    <a href="https://mymoney-curso-devpleno.firebaseapp.com/"><strong>Ver Demo »</strong></a>
+    <a href="https://mymoney-curso-devpleno.firebaseapp.com/" target="_blank"><strong>Ver Demo »</strong></a>
     <br />
   </p>
 </p>
@@ -18,9 +18,9 @@
 
 ## O Projeto
 
-[![My Money - Home Page][my-money-home-page]](https://imgur.com/2vcIbvU)
+![My Money - Home Page](https://imgur.com/2vcIbvU)
 
-A aplicação My Money tem como principal objetivo o controle de finanças. É possível adicionar o mês que se deseja monitorar e cada transação/movimentação feita, dessa forma a aplicação faz o cálculo total das entradas e saídas, permitindo o usuário ter maior controle sobre suas transações financeiras.
+A aplicação My Money tem como principal objetivo o controle de finanças. É possível adicionar o mês que se deseja e monitorar cada transação/movimentação feita, dessa forma a aplicação faz o cálculo total das entradas e saídas, permitindo o usuário ter maior controle sobre suas transações financeiras.
 
 Por que desenvolvi esse projeto?
 
@@ -29,7 +29,7 @@ Por que desenvolvi esse projeto?
 
 <!-- TECNOLOGIAS UTILIZADAS -->
 
-### Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Bootstrap](https://getbootstrap.com)
@@ -37,9 +37,9 @@ Por que desenvolvi esse projeto?
 
 Obs.: O layout da aplicação foi feito apenas com o tema padrão do bootstrap.
 
-<!-- Instalação local -->
+<!-- INSTALAÇÃO LOCAL -->
 
-### Instalação
+## Instalação
 
 Caso queira utilizar esse projeto localmente em sua máquina, siga as seguintes instruções:
 
