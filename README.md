@@ -1,68 +1,86 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
+<!-- CABEÇALHO -->
 
-In the project directory, you can run:
+<br />
+<p align="center">
+  <h3 align="center">My Money</h3>
 
-### `npm start`
+  <p align="center">
+    Aplicação para controle de finanças.
+    <br />
+    <a href="https://mymoney-curso-devpleno.firebaseapp.com/"><strong>Ver Demo »</strong></a>
+    <br />
+  </p>
+</p>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- SOBRE O PROJETO -->
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## O Projeto
 
-### `npm test`
+[![My Money - Home Page][my-money-home-page]](https://imgur.com/2vcIbvU)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A aplicação My Money tem como principal objetivo o controle de finanças. É possível adicionar o mês que se deseja monitorar e cada transação/movimentação feita, dessa forma a aplicação faz o cálculo total das entradas e saídas, permitindo o usuário ter maior controle sobre suas transações financeiras.
 
-### `npm run build`
+Por que desenvolvi esse projeto?
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Aprendizado
+- Desafio do curso de ReactJS por DevPleno
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+<!-- TECNOLOGIAS UTILIZADAS -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tecnologias Utilizadas
 
-### `npm run eject`
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+- [Firebase](firebase.google.com/site/oficial‎)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Obs.: O layout da aplicação foi feito apenas com o tema padrão do bootstrap.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- Instalação local -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Instalação
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Caso queira utilizar esse projeto localmente em sua máquina, siga as seguintes instruções:
 
-## Learn More
+1. Faça o clone ou o download da aplicação
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+git clone https:://github.com/your_username_/Project-Name.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Instale os pacotes
 
-### Code Splitting
+- npm
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```sh
+npm install
+```
 
-### Analyzing the Bundle Size
+- yarn
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```sh
+yarn
+```
 
-### Making a Progressive Web App
+3. Inicie a aplicação e rode na porta localhost:3000
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- npm
 
-### Advanced Configuration
+```sh
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- yarn
 
-### Deployment
+```sh
+yarn start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<!-- CONTACT -->
 
-### `npm run build` fails to minify
+## Contato
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Patrícia Yumi - patrciayumi@gmail.com
+
+Project Link: [https://github.com/PatriciYumi/my-money](https://github.com/PatriciYumi/my-money)

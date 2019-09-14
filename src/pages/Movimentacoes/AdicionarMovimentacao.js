@@ -30,7 +30,7 @@ const AdicionarMovimentacao = ({ salvarNovaMovimentacao }) => {
         <label className="font-weight-bold">Transação</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           value={descricao}
           onChange={onChangeDescricao}
           placeholder="Ex.: 13º Salário"
@@ -41,7 +41,7 @@ const AdicionarMovimentacao = ({ salvarNovaMovimentacao }) => {
         <label className="font-weight-bold">Valor (R$)</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           value={valor}
           onChange={onChangeValor}
           placeholder="Insira o valor SEM os centavos (Ex.: 520)"
